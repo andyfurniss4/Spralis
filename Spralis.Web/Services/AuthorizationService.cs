@@ -24,7 +24,7 @@ namespace Spralis.Web.Services
         public string GetAuthorizeURL()
         {
             var stateGuid = Guid.NewGuid();
-            return $"{configurationService.Get("ESI.Auth.AuthorizeURL")}?response_type=code&redirect_uri={configurationService.Get("ESI.Auth.CallbackURL")}&client_id={clientId}&scope=characterKillsRead&state={stateGuid.ToString()}";
+            return $"{configurationService.Get("ESI.Auth.AuthorizeURL")}?response_type=code&redirect_uri={configurationService.Get("ESI.Auth.CallbackURL")}&client_id={clientId}&scope=esi-contracts.read_character_contracts.v1%20esi-clones.read_clones.v1%20esi-characters.read_standings.v1%20esi-assets.read_assets.v1%20esi-characters.read_contacts.v1%20esi-characters.read_chat_channels.v1%20esi-mail.read_mail.v1%20esi-location.read_ship_type.v1%20esi-location.read_location.v1%20esi-corporations.read_corporation_membership.v1%20esi-corporations.read_standings.v1&state={stateGuid.ToString()}";
         }
 
         public GetAccessTokenResponse GetAccessToken(string code)

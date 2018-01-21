@@ -6,7 +6,7 @@ namespace Spralis.Web.Services
     {
         public string Get(string key)
         {
-            return ConfigurationManager.AppSettings.Get($"EST.{key}");
+            return ConfigurationManager.AppSettings.Get($"Spralis.{key}");
         }
     }
 }

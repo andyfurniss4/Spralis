@@ -1,5 +1,4 @@
-﻿using Spralis.Services;
-using Spralis.Services.Interfaces;
+﻿using Spralis.Web.Services;
 using Ninject;
 using Ninject.Web.Common;
 using System;

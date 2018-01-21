@@ -1,0 +1,63 @@
+﻿@model Spralis.Web.ViewModels.SearchViewModel
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+
+@using (Html.BeginForm("Index", "Search", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Search.SearchString, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Search.SearchString, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Search.SearchString, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Search.Categories, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @foreach (var category in Model.Search.Categories)
+            {
+                <div class="checkbox">
+                    @Html.EditorFor(m => category.Selected)
+                    <label>@Html.DisplayFor(m => category.Category)</label>
+                </div>
+            }
+            @Html.ValidationMessageFor(m => m.Search.Categories, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Search.DataSources, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @foreach (var dataSource in Model.Search.DataSources)
+            {
+                <div class="radio">
+                    @Html.RadioButtonFor(m => m.Search.SelectedDataSource, dataSource)
+                    <label>@Html.DisplayFor(m => dataSource)</label>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Search" class="btn btn-success" />
+        </div>
+    </div>
+}
+
+@if (!string.IsNullOrWhiteSpace(Model.ResultJson))
+{
+    <div class="row">
+        <h3>Results</h3>
+        @Html.TextAreaFor(m => m.ResultJson, new { @readonly = true, @class = "col-md-12" })
+    </div>
+}

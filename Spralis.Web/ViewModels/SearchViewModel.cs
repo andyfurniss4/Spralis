@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Spralis.Web.Models;
 
 namespace Spralis.Web.ViewModels
 {
     public class SearchViewModel
     {
-        public string DataSource { get; set; }
-        public 
-    }
+        public SearchViewModel()
+        {
+            Search = new Search();
+        }
 
-    //public class 
+        public Search Search { get; set; }
+        public string ResultJson { get; set; }
+    }
 }

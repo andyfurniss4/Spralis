@@ -1,4 +1,4 @@
-﻿using Spralis.Services;
+﻿using Spralis.Web.Services;
 using System.Web.Mvc;
 
 namespace Spralis.Web.Controllers

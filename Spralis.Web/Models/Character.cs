@@ -1,25 +1,28 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace Spralis.Web.Models
 {
     public class Character
     {
+        public int CharacterId { get; set; }
+
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         [JsonProperty(PropertyName = "corporation_id")]
-        public int CorporationID { get; set; }
+        public int CorporationId { get; set; }
 
         [JsonProperty(PropertyName = "alliance_id")]
-        public int AllianceID { get; set; }
+        public int AllianceId { get; set; }
 
         [JsonProperty(PropertyName = "birthday")]
-        public int DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
         [JsonProperty(PropertyName = "security_status")]
         public decimal SecurityStatus { get; set; }
 
         [JsonProperty(PropertyName = "faction_id")]
-        public decimal FactionID { get; set; }
+        public decimal FactionId { get; set; }
     }
 }
